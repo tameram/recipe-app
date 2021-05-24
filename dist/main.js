@@ -1,3 +1,4 @@
+const r = new Renderer()
 const getRecipes = function () {
     const ingredient = $('#ingredient').val()
     $.get(`/sanity/${ingredient}`, function (results) {
@@ -11,7 +12,6 @@ const getRecipes = function () {
             }
             ingredients.push(_product)
         }
-        const r = new Renderer()
         r.render(ingredients)
 
     })
