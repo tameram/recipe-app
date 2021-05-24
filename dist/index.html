@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+
+    <title>First Exam</title>
+</head>
+
+<body>
+    <input type="text" id="ingredient" placeholder="enter name of recipe">
+    <button type="submit" onclick=getRecipes() class="btn btn-primary"> Search! </button>
+    <div id="result"></div>
+
+    <script id="food-template" type="text/x-handlebars-template">
+
+              {{#each data}}
+
+                       <div class="card">
+                            <a href="{{href}}"> <div class="title" >{{title}} </div></a>
+                            <div class="img-container"><img src={{thumbnail}} onerror="this.onerror=null;this.src='images/imagefound.png';" onclick= "clickImage(this)" alt="{{ingredients}}" srcset=""></div>
+                            <div class="ingredientsText title">ingredients</div>
+                            <ul class="ingredient">
+                            {{#each ingredients}}
+                                <div >{{this}} </div>
+                            {{/each}}
+                            </ul>
+                       </div>
+              {{/each}}
+
+          </script>
+
+    <div class="foodList">
+    </div>
+
+    </div>
+    <script src="/jquery/dist/jquery.js"></script>
+    <script src="/handlebars/dist/handlebars.js"></script>
+    <script src="renderer.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
